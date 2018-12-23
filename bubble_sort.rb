@@ -1,7 +1,5 @@
 def bubble_sort(arr)
-  
   indices = (arr.length - 1)
-
   loop do
     sorted = true
     indices.times do |index|
@@ -18,7 +16,6 @@ end
 
 def bubble_sort_by(arr)
  array_length = (arr.length - 1)
-
   loop do
     sorted = true
     array_length.times do |index|
@@ -32,6 +29,9 @@ def bubble_sort_by(arr)
   end
   puts "====SORTED===> " + arr.join(", ")
 end
+
+
+
 #RANDOM NUMS AND WORDS FOR ABOVE METHODS
 def random_array(num_of_index)
   nums = []
@@ -40,13 +40,11 @@ def random_array(num_of_index)
 end 
 
 def random_words(num_of_words)
-
   dictionary = ["Python","Ruby","CSS","HTML","Programming","Rails","Java",
   "JavaScript","Apple","Microsoft","Gates","Jobs","Hackers","GO","C++","C#",
   "Google","Netscape","Runescape","Tetris","Pac-Man" ]
   
   too_many_words = ["Too", "Many", "Words"]
-  
   dictionary.shuffle!
 
     if num_of_words > 2 && num_of_words <= 10
@@ -59,7 +57,9 @@ def random_words(num_of_words)
 
 end
 #END RANDOM NUMS AND WORDS
-puts "**********Sort BY NUMS"
+
+
+puts "**********SORT BY NUMS"
 
 bubble_sort(random_array(rand(2..15)))
 
