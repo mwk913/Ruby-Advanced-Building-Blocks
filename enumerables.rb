@@ -28,8 +28,7 @@ module Enumerable
   end
 
   def my_all?
-
-  self.my_each do |i|
+    self.my_each do |i|
       return false unless yield(i)
     end
     true
@@ -55,23 +54,42 @@ module Enumerable
       self.my_each do |i|
         nums << yield(i)
       end
-     p nums
+      p nums
     elsif arg != nil
       self.my_select do |i|
         nums.push(arg) if arg == i
       end
-     p nums.length
+      p nums.length
     else
       p self.length if arg == nil
     end
   end
 
+  def my_map(&proc)
+    arr = []
+    self.my_each do |item|
+      if proc.nil?
+        arr << proc.call(item)
+      else
+        arr << yield(item)
+      end
+    end
+    return arr
+  end
+
+ def my_inject(nums = nil)
+    if nums == nil
+      nums = self[0]
+    end
+      0.upto(self.length-1) { |i| nums = yield(nums, self[i]) }
+    nums
+  end
+      
 end
 
+def multiply_els(arr)
+  arr.my_inject { |total, i| total * i }
+end
 
-
-arr = [1,2,3,4,4,4,5,5,4,4,11,5,12]
-
-arr.my_count(5)
-
+multiply_els([11,4,5,6])
 
